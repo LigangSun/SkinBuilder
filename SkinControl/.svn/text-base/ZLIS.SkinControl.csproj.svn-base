@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95778D38-A216-432D-81EB-A6893937F841}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZLIS.SkinControl</RootNamespace>
+    <AssemblyName>SkinControl</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Office2007Blue\BlueHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueHeader.Designer.cs">
+      <DependentUpon>BlueHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueRibbonButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueRibbonButton.Designer.cs">
+      <DependentUpon>BlueRibbonButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinButton.Designer.cs">
+      <DependentUpon>BlueSkinButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinCheckBox.Designer.cs">
+      <DependentUpon>BlueSkinCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinComboBox.Designer.cs">
+      <DependentUpon>BlueSkinComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinDropDownButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinDropDownButton.Designer.cs">
+      <DependentUpon>BlueSkinDropDownButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinForm.Designer.cs">
+      <DependentUpon>BlueSkinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinListView.Designer.cs">
+      <DependentUpon>BlueSkinListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinPanel.Designer.cs">
+      <DependentUpon>BlueSkinPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinProgressBar.Designer.cs">
+      <DependentUpon>BlueSkinProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinRadioButton.Designer.cs">
+      <DependentUpon>BlueSkinRadioButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\BlueSkinTextBox.Designer.cs">
+      <DependentUpon>BlueSkinTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\GeneralMainMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\GeneralMainMenuItem.designer.cs">
+      <DependentUpon>GeneralMainMenuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Office2007Blue\MainMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\MainMenuSeperator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\MessageDialog.cs" />
+    <Compile Include="Office2007Blue\RecentFileMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Office2007Blue\RecentFileMenuItem.designer.cs">
+      <DependentUpon>RecentFileMenuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Office2007Blue\BlueHeader.resx">
+      <DependentUpon>BlueHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Office2007Blue\BlueSkinForm.resx">
+      <DependentUpon>BlueSkinForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SkinBuilder\ZLIS.SkinBuilder.csproj">
+      <Project>{4C0B1FB9-5678-414A-A4F1-E50E6AF1B2B1}</Project>
+      <Name>ZLIS.SkinBuilder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SkinBuilder\Project\Utility\Utility.csproj">
+      <Project>{E26981C2-F44D-4918-9108-41AFDEC88DDB}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueClose_D.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueClose_H.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueClose_N.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueComboBoxBtn_D.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueComboBoxBtn_H.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueComboBoxBtn_N.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueCommonBtn_D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueCommonBtn_H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueCommonBtn_N.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueFormBK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueMax_D.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueMax_H.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueMax_N.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueMin_D.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueMin_H.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueMin_N.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueProgressBar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueProgressBar_BK.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueRestore_D.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueRestore_H.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueRestore_N.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-d.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox highlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox-disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox-highlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox-press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\item_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Radio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radiobtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radiobtn-disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radiobtn-highlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ToolTitleBK.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

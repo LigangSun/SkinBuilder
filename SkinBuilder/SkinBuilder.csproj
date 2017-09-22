@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C0B1FB9-5678-414A-A4F1-E50E6AF1B2B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SkinBuilder</RootNamespace>
+    <AssemblyName>SkinBuilder</AssemblyName>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SkinBuilder.snk</AssemblyOriginatorKeyFile>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnimateControl\AnimateControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AnimateControl\AnimateControl.Designer.cs">
+      <DependentUpon>AnimateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorSelector\ColorPicker\ComboBoxColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColorSelector\ColorPicker\ComboBoxColorPicker.designer.cs">
+      <DependentUpon>ComboBoxColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorSelector\ColorPicker\OfficeColorPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ColorSelector\ColorPicker\OfficeColorPicker.designer.cs">
+      <DependentUpon>OfficeColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorSelector\ColorPicker\SelectableColor.cs" />
+    <Compile Include="ColorSelector\ColorPicker\ToolStripColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColorSelector\Util\ContextMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorSelector\Util\ContextMenuForm.designer.cs">
+      <DependentUpon>ContextMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorSelector\Util\CustomColors.cs" />
+    <Compile Include="ColorSelector\Util\GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Config\ColorTable.cs" />
+    <Compile Include="Config\ImageTable.cs" />
+    <Compile Include="Help\Help.cs" />
+    <Compile Include="Help\PathCreator.cs" />
+    <Compile Include="ImageObject\ImageObject.cs" />
+    <Compile Include="Manager\SkinManager.cs" />
+    <Compile Include="MaskCorner.cs" />
+    <Compile Include="Office2007Render\Office2007ColorTable.cs" />
+    <Compile Include="Office2007Render\Office2007Helpers.cs" />
+    <Compile Include="Office2007Render\Office2007Renderer.cs" />
+    <Compile Include="SkinCalendar\AbstractRenderer.cs" />
+    <Compile Include="SkinCalendar\Appointment.cs" />
+    <Compile Include="SkinCalendar\AppointmentEventArgs.cs" />
+    <Compile Include="SkinCalendar\DayView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinCalendar\DrawTool.cs" />
+    <Compile Include="SkinCalendar\ITool.cs" />
+    <Compile Include="SkinCalendar\MonthView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinCalendar\MonthView.Designer.cs">
+      <DependentUpon>MonthView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinCalendar\NewAppointmentEvent.cs" />
+    <Compile Include="SkinCalendar\Office11Renderer.cs" />
+    <Compile Include="SkinCalendar\Office12Renderer.cs" />
+    <Compile Include="SkinCalendar\ResolveAppointmentsEvent.cs" />
+    <Compile Include="SkinCalendar\Selection.cs" />
+    <Compile Include="SkinCalendar\SelectionTool.cs" />
+    <Compile Include="SkinCalendar\SkinCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SkinCalendar\SkinCalendar.Designer.cs">
+      <DependentUpon>SkinCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinComboBox\ComboBox2ListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SkinComboBox\ComboBox2ListBox.Designer.cs">
+      <DependentUpon>ComboBox2ListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinComboBox\SkinComboBox2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SkinComboBox\SkinComboBox2.Designer.cs">
+      <DependentUpon>SkinComboBox2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinComboBox\SkinComboBox2Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinComboBox\SkinComboBox2Button.Designer.cs">
+      <DependentUpon>SkinComboBox2Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinComboBox\SkinComboBox2DropDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SkinComboBox\SkinComboBox2DropDown.Designer.cs">
+      <DependentUpon>SkinComboBox2DropDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinControl\SkinControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SkinControl\SkinControl.Designer.cs">
+      <DependentUpon>SkinControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinListView\ContainerListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinListView\Helpers\StringTools.cs" />
+    <Compile Include="SkinListView\HelperTools.cs" />
+    <Compile Include="SkinListView\IParentChildList.cs" />
+    <Compile Include="SkinListView\SkinListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinListView\SkinListView.Designer.cs">
+      <DependentUpon>SkinListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinListView\TreeListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinListView\uxTheme\Wrapper.cs" />
+    <Compile Include="SkinPanel\SkinPopupPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinPanel\SkinPopupPanel.Designer.cs">
+      <DependentUpon>SkinPopupPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Render\DrawEngine.cs" />
+    <Compile Include="Render\IRender.cs" />
+    <Compile Include="Render\RenderEngine.cs" />
+    <Compile Include="SkinBase\ISkinBase.cs" />
+    <Compile Include="SkinBase\Types.cs" />
+    <Compile Include="SkinButton\RibbonButton\RibbonButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinButton\RibbonButton\RibbonDropDownButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinButton\RibbonButton\RibbonDropDownButton.Designer.cs">
+      <DependentUpon>RibbonDropDownButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinButton\SkinButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinButton\SkinButton.Designer.cs">
+      <DependentUpon>SkinButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinButton\SkinDropDownButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinButton\SkinDropDownButton.Designer.cs">
+      <DependentUpon>SkinDropDownButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinCheckBox\SkinCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinCheckBox\SkinCheckBox.Designer.cs">
+      <DependentUpon>SkinCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinComboBox\SkinComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinComboBox\SkinComboBox.Designer.cs">
+      <DependentUpon>SkinComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinFlowLayoutPanel\SkinFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinFlowLayoutPanel\SkinFlowLayoutPanel.Designer.cs">
+      <DependentUpon>SkinFlowLayoutPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinForm\SkinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkinForm\SkinForm.Designer.cs">
+      <DependentUpon>SkinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinLabel\SkinLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinLabel\SkinLabel.Designer.cs">
+      <DependentUpon>SkinLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinListBox\SkinListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinListBox\SkinListBox.Designer.cs">
+      <DependentUpon>SkinListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinListControl\GroupListControl\ExListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinPanel\SkinPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinPanel\SkinPanel.Designer.cs">
+      <DependentUpon>SkinPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinPanel\SkinScrollablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinPanel\SkinScrollablePanel.Designer.cs">
+      <DependentUpon>SkinScrollablePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinPanel\SkinTabPanel\TabPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinPopup\SkinPopup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SkinPopup\SkinPopup.Designer.cs">
+      <DependentUpon>SkinPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinProgressBar\SkinProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinProgressBar\SkinProgressBar.Designer.cs">
+      <DependentUpon>SkinProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinRadioButton\SkinRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinRadioButton\SkinRadioButton.Designer.cs">
+      <DependentUpon>SkinRadioButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinScrollBar\SkinScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinScrollBar\SkinScrollBar.Designer.cs">
+      <DependentUpon>SkinScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinSplitContainer\SkinSpliterContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinSplitContainer\SkinSpliterContainer.Designer.cs">
+      <DependentUpon>SkinSpliterContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinTab\LayoutUtils.cs" />
+    <Compile Include="SkinTab\RibbonPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinTab\Tab.cs" />
+    <Compile Include="SkinTab\TabPageSwitcher.cs" />
+    <Compile Include="SkinTab\TabPageSwitcherDesigner.cs" />
+    <Compile Include="SkinTab\TabStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinTab\TabStripPage.cs" />
+    <Compile Include="SkinTab\TabStripProfessionalRenderer.cs" />
+    <Compile Include="SkinTab\TabStripSystemRenderer.cs" />
+    <Compile Include="SkinTab\TabStripToolboxItem.cs" />
+    <Compile Include="SkinTab\TabToolboxItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SkinTaleLayoutPanel\SkinTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinTaleLayoutPanel\SkinTableLayoutPanel.Designer.cs">
+      <DependentUpon>SkinTableLayoutPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinTextBox\SkinTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SkinTextBox\SkinTextBox.Designer.cs">
+      <DependentUpon>SkinTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinToolTip\SkinToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinToolTip\SkinToolTip.Designer.cs">
+      <DependentUpon>SkinToolTip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkinTreeView\SkinTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SkinTreeView\SkinTreeView.Designer.cs">
+      <DependentUpon>SkinTreeView.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AnimateControl\AnimateControl.resx">
+      <DependentUpon>AnimateControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorSelector\ColorPicker\ComboBoxColorPicker.resx">
+      <DependentUpon>ComboBoxColorPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorSelector\ColorPicker\OfficeColorPicker.resx">
+      <DependentUpon>OfficeColorPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorSelector\ColorPicker\ToolStripColorPicker.resx">
+      <DependentUpon>ToolStripColorPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorSelector\Util\ContextMenuForm.resx">
+      <DependentUpon>ContextMenuForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinButton\SkinButton.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SkinButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinCalendar\SkinCalendar.resx">
+      <DependentUpon>SkinCalendar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinComboBox\SkinComboBox2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SkinComboBox2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinComboBox\SkinComboBox2DropDown.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SkinComboBox2DropDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinForm\SkinForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SkinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinLabel\SkinLabel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SkinLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinListControl\GroupListControl\ExListView.resx">
+      <DependentUpon>ExListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinListView\ContainerListView.resx">
+      <DependentUpon>ContainerListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinPanel\SkinTabPanel\TabPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TabPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkinTextBox\SkinTextBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SkinTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ComboArrow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{E26981C2-F44D-4918-9108-41AFDEC88DDB}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tv_minus.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tv_plus.bmp" />
+    <None Include="SkinBuilder.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SkinListControl\SupperListControl\" />
+    <Folder Include="SkinUserControl\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

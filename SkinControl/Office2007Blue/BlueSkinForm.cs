@@ -1,0 +1,169 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using ZLIS.SkinBuilder;
+using ZLIS.SkinControl.Properties;
+using System.Runtime.InteropServices;
+
+namespace ZLIS.SkinControl.Office2007Blue
+{
+    public partial class BlueSkinForm : SkinForm
+    {
+        private FormWindowState oldState = FormWindowState.Normal;
+
+        public BlueSkinForm()
+        {
+            InitializeComponent();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            if (this.DesignMode)
+            {
+                this.AssignCloseButtonPosition();
+                this.AssignMaxButtonPosition();
+                this.AssignMinButtonPosition();
+                return;
+            }
+
+            this.FormBorderStyle = FormBorderStyle.None;
+            base.BackgroundImage = Resources.BlueFormBK;
+            base.MaskBitmap = Resources.BlueFormBK;
+            base.AutoScaleMode = AutoScaleMode.None;
+
+            base.CanResize = false;
+
+            base.CaptionHeight = 29;
+
+            base.SplitMargin = new Padding(35);
+            base.CornerRadius = 6;
+            base.Mask = MaskType.TopTowRoundCorner;
+
+            this.AssignCloseButtonPosition();
+            this.AssignMaxButtonPosition();
+            this.AssignMinButtonPosition();
+            //    this.AssignSystemMenuItemStatus();
+
+            if (!this.DesignMode)
+            {
+                this.MaximizedBounds = SystemInformation.WorkingArea;
+                this.Location = new Point((SystemInformation.WorkingArea.Width - this.Width) / 2, (SystemInformation.WorkingArea.Height - this.Height) / 2);
+            }
+        }
+
+        protected override void OnCreateControl()
+        {
+            base.OnCreateControl();
+
+           
+        }
+
+        private void AssignCloseButtonPosition()
+        {
+            if (!this.DesignMode && this.closeSkinButton.DisableBitmap == null)
+            {
+                this.closeSkinButton.NormalBitmap = Resources.BlueClose_N;
+                this.closeSkinButton.HighlightBitmap = Resources.BlueClose_H;
+                this.closeSkinButton.DownBitmap = Resources.BlueClose_D;
+                this.closeSkinButton.DisableBitmap = Resources.BlueClose_N;
+
+                this.closeSkinButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            }
+
+            this.closeSkinButton.Size = new Size(Resources.BlueClose_N.Width, Resources.BlueClose_N.Height);
+            this.closeSkinButton.Location = new Point(this.Width - base.CornerRadius - this.closeSkinButton.Width, 4);
+        }
+
+        private void AssignMaxButtonPosition()
+        {
+            if (!this.DesignMode && this.maxSkinButton.DisableBitmap == null)
+            {
+                this.maxSkinButton.NormalBitmap = Resources.BlueMax_N;
+                this.maxSkinButton.HighlightBitmap = Resources.BlueMax_H;
+                this.maxSkinButton.DownBitmap = Resources.BlueMax_D;
+                this.maxSkinButton.DisableBitmap = Resources.BlueMax_N;
+
+                this.maxSkinButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+                this.maxSkinButton.Size = new Size(Resources.BlueMax_N.Width, Resources.BlueMax_N.Height);
+            }
+
+            this.maxSkinButton.Location = new Point(this.closeSkinButton.Left - this.maxSkinButton.Width - 2, 4);
+
+            if (!this.MaximizeBox)
+            {
+                this.maxSkinButton.Visible = false;
+                this.maxSkinButton.Enabled = false;
+            }
+            else
+            {
+                this.maxSkinButton.Visible = true;
+                this.maxSkinButton.Enabled = true;
+            }
+        }
+
+        private void AssignMinButtonPosition()
+        {
+            if (!this.DesignMode && this.minSkinButton.DisableBitmap == null)
+            {
+                this.minSkinButton.NormalBitmap = Resources.BlueMin_N;
+                this.minSkinButton.HighlightBitmap = Resources.BlueMin_H;
+                this.minSkinButton.DownBitmap = Resources.BlueMin_D;
+                this.minSkinButton.DisableBitmap = Resources.BlueMin_N;
+
+                this.minSkinButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+                this.minSkinButton.Size = new Size(Resources.BlueMin_N.Width, Resources.BlueMin_N.Height);
+            }
+
+            if (!this.MaximizeBox)
+                this.minSkinButton.Location = new Point(this.closeSkinButton.Left - this.minSkinButton.Width - 2, 4);
+            else
+                this.minSkinButton.Location = new Point(this.maxSkinButton.Left - this.minSkinButton.Width - 2, 4);
+
+            if (this.MinimizeBox)
+                this.minSkinButton.Visible = true;
+            else
+            {
+                if (this.MaximizeBox)
+                    this.minSkinButton.Visible = true;
+                else
+                    this.minSkinButton.Visible = false;
+            }
+        }
+    
+        private void closeSkinButton_Click(object sender, EventArgs e)
+        {
+            this.CloseThis();
+        }
+
+        protected virtual void CloseThis()
+        {
+            this.Close();
+        }
+
+        private void maxSkinButton_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            this.oldState = this.WindowState;
+        }
+
+        private void minSkinButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+    }
+}

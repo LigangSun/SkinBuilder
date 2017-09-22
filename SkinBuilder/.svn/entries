@@ -1,0 +1,368 @@
+9
+
+dir
+515
+http://123.100.253.101:81/svn/ZLIS/SkinBuilder/Project/SkinBuilder
+http://123.100.253.101:81/svn/ZLIS
+
+
+
+2009-12-30T08:06:56.717500Z
+352
+sunligang
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+78a610df-46d5-3541-aa90-03db00d96231
+
+SkinRadioButton
+dir
+
+Render
+dir
+
+SkinToolTip
+dir
+
+SkinTreeView
+dir
+
+SkinTextBox
+dir
+
+SkinSplitContainer
+dir
+
+MRUCollection.cs
+file
+
+
+
+
+2009-12-31T07:09:44.254000Z
+08090e57aedcaa45a2065c96d3cc13ae
+2009-10-11T03:04:17.147750Z
+59
+sunligang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2177
+
+SkinPopup
+dir
+
+Help
+dir
+
+ZLIS.SkinBuilder.csproj
+file
+
+
+
+
+2009-12-31T07:09:44.257000Z
+49589a2b1e799599ea4aaa12104da7e6
+2009-10-11T03:04:17.147750Z
+59
+sunligang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+18929
+
+SkinListView
+dir
+
+Properties
+dir
+
+SkinListControl
+dir
+
+Office2007Render
+dir
+
+SkinUserControl
+dir
+
+SkinLabel
+dir
+
+SkinControl
+dir
+
+Config
+dir
+
+SkinScrollBar
+dir
+
+SkinFlowLayoutPanel
+dir
+
+Manager
+dir
+
+Resources
+dir
+
+SkinCheckBox
+dir
+
+SkinProgressBar
+dir
+
+AnimateControl
+dir
+
+ColorSelector
+dir
+
+SkinPanel
+dir
+
+SkinForm
+dir
+
+SkinTaleLayoutPanel
+dir
+
+SkinTab
+dir
+
+SkinComboBox
+dir
+
+SkinCalendar
+dir
+
+SkinBase
+dir
+
+SkinButton
+dir
+
+PropertyBag.cs
+file
+
+
+
+
+2009-12-31T07:09:44.259000Z
+23593742098d0ec1d96b6418748fa98b
+2009-10-11T03:04:17.147750Z
+59
+sunligang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+45013
+
+SkinBuilder.snk
+file
+
+
+
+
+2009-12-31T07:09:44.262000Z
+dafb3b1f7445c61470ef577441d5e7ff
+2009-09-08T15:04:34.705500Z
+4
+sunligang
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+596
+
+SkinBuilder.sln
+file
+
+
+
+
+2009-12-31T07:09:44.264000Z
+998afa74502086c25539cd11132de78e
+2009-09-08T15:04:34.705500Z
+4
+sunligang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2372
+
+MaskCorner.cs
+file
+
+
+
+
+2009-12-31T07:09:44.266000Z
+f743ccd1985ffe7c148283cacfdcf2c4
+2009-09-08T15:04:34.705500Z
+4
+sunligang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1700
+
+SkinListBox
+dir
+
+ImageObject
+dir
+
+SkinBuilder.csproj
+file
+
+
+
+
+2009-12-31T07:09:44.268000Z
+76278c92e3936fcc53ad0bb4a23bed3e
+2009-09-08T15:04:34.705500Z
+4
+sunligang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+18843
+

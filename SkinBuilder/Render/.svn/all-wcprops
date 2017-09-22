@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/Render
+END
+DrawEngine.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/Render/DrawEngine.cs
+END
+RenderEngine.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/Render/RenderEngine.cs
+END
+IRender.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/Render/IRender.cs
+END

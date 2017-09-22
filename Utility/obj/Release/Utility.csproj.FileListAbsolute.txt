@@ -1,0 +1,10 @@
+E:\SVN\ZLIS\SkinBuilder\Project\Utility\bin\Release\Utility.dll
+E:\SVN\ZLIS\SkinBuilder\Project\Utility\bin\Release\Utility.pdb
+E:\SVN\ZLIS\SkinBuilder\Project\Utility\obj\Release\ResolveAssemblyReference.cache
+E:\SVN\ZLIS\SkinBuilder\Project\Utility\obj\Release\Utility.dll
+E:\SVN\ZLIS\SkinBuilder\Project\Utility\obj\Release\Utility.pdb
+E:\SVN\ZLIS_New\SkinBuilder\Project\Utility\bin\Release\Utility.dll
+E:\SVN\ZLIS_New\SkinBuilder\Project\Utility\bin\Release\Utility.pdb
+E:\SVN\ZLIS_New\SkinBuilder\Project\Utility\obj\Release\ResolveAssemblyReference.cache
+E:\SVN\ZLIS_New\SkinBuilder\Project\Utility\obj\Release\Utility.dll
+E:\SVN\ZLIS_New\SkinBuilder\Project\Utility\obj\Release\Utility.pdb

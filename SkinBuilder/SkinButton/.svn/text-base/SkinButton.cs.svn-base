@@ -1,0 +1,540 @@
+// ***************************************************************
+//  SkinButton   version:  1.0   ? date: 02/08/2008
+//  -------------------------------------------------------------
+//  
+//  -------------------------------------------------------------
+//  Health121 Copyright (C) 2008 - All Rights Reserved
+// ***************************************************************
+//  
+//  Author: Jeffery
+//  
+//  Purpurs: The basic skin button
+// ***************************************************************
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Text;
+using System.Windows.Forms;
+using System.Diagnostics;
+
+namespace ZLIS.SkinBuilder
+{
+    public partial class SkinButton : Button , ISkinBase
+    {
+        public enum Fade 
+        {
+            In,
+            Out
+        }
+
+        #region Members
+        protected ControlState state = ControlState.Normal;
+        private ImageObject imageObject = null;
+        private ToolTip toolTip = new ToolTip();
+        private string toolTipText = string.Empty;
+        private ToolStripTextDirection textDirection = ToolStripTextDirection.Horizontal;
+
+        private bool enableMask = false;
+
+        private bool enableFade = false;
+
+        protected int alpha = 0;
+
+        protected Fade fade = Fade.Out;
+        #endregion
+
+        public event DrawingEventHandler DrawButtonEvent;
+
+        #region From ISkinBase
+
+        public ControlState State()
+        {
+            return this.state;
+        }
+
+        public Bitmap GetBitmap(ControlState state)
+        {
+            if (this.imageObject == null)
+                return null;
+            return this.imageObject[state];
+        }
+
+        public ImageObject GetImageObject()
+        {
+            return this.imageObject;
+        }
+
+        #endregion
+
+        #region Button Bitmaps
+
+        public ImageObject ImageObject
+        {
+            get { return this.imageObject; }
+            set { this.imageObject = value; }
+        }
+
+        [DefaultValue(null)]
+        public Bitmap NormalBitmap
+        {
+            set
+            {
+                if (value == null && this.imageObject == null)
+                    return;
+
+                if (this.imageObject == null)
+                    this.imageObject = new ImageObject();
+                this.imageObject[ControlState.Normal] = value;
+
+                this.MaskThis();
+            }
+            get
+            {
+                if (this.imageObject == null)
+                    return null;
+                return this.imageObject[ControlState.Normal];
+            }
+        }
+
+        [DefaultValue(null)]
+        public Bitmap HighlightBitmap
+        {
+            set
+            {
+                if (value == null && this.imageObject == null)
+                    return;
+
+                if (this.imageObject == null)
+                    this.imageObject = new ImageObject();
+                this.imageObject[ControlState.Highlight] = value; 
+            }
+            get
+            {
+                if (this.imageObject == null)
+                    return null;
+                return this.imageObject[ControlState.Highlight];
+            }
+        }
+
+        [DefaultValue(null)]
+        public Bitmap DownBitmap
+        {
+            set 
+            {
+                if (value == null && this.imageObject == null)
+                    return;
+
+                if (this.imageObject == null)
+                    this.imageObject = new ImageObject();
+                this.imageObject[ControlState.Down] = value;
+            }
+            get
+            {
+                if (this.imageObject == null)
+                    return null;
+                return this.imageObject[ControlState.Down];
+            }
+        }
+
+        [DefaultValue(null)]
+        public Bitmap DisableBitmap
+        {
+            set 
+            {
+                if (value == null && this.imageObject == null)
+                    return;
+
+                if (this.imageObject == null)
+                    this.imageObject = new ImageObject();
+                this.imageObject[ControlState.Disable] = value; 
+            }
+            get
+            {
+                if (this.imageObject == null)
+                    return null;
+                return this.imageObject[ControlState.Disable];
+            }
+        }
+
+        #endregion
+
+        #region Properties
+        public string ToolTip
+        {
+            set 
+            {
+                this.toolTipText = value;
+                if (this.toolTip != null && value.Length > 0)
+                {
+                    this.toolTip.SetToolTip(this, value);
+                    this.toolTip.IsBalloon = true;
+                    this.toolTip.InitialDelay = 300;
+                    this.toolTip.AutoPopDelay = 5000;
+                    this.toolTip.ShowAlways = true;
+                    this.toolTip.Active = true;
+                }
+            }
+            get 
+            {
+                return this.toolTipText;
+            }
+        }
+
+        public ToolStripTextDirection TextDirection
+        {
+            get { return this.textDirection; }
+            set
+            { 
+                this.textDirection = value;
+                this.Invalidate();
+            }
+        }
+
+        public bool EnableMask
+        {
+            get { return this.enableMask; }
+            set { this.enableMask = value; }
+        }
+
+        public bool EnableFade 
+        {
+            get { return this.enableFade; }
+            set { this.enableFade = value; }
+        }
+
+        protected new bool DesignMode
+        {
+            get
+            {
+                try
+                {
+                    if (base.DesignMode)
+                        return true;
+
+                    Control parent = this.Parent;
+                    while (parent != null)
+                    {
+                        if (parent.Site != null)
+                            return parent.Site.DesignMode;
+
+                        parent = parent.Parent;
+                    }
+
+                    return false;
+                }
+                catch (System.Exception ex)
+                {
+
+                }
+
+                return false;
+            }
+        }
+
+        #endregion
+
+        #region Constructor and Init
+        public SkinButton()
+        {
+            InitializeComponent();
+
+            this.InitStyles();
+            this.InitEvents();
+
+       //     this.imageObject = new ImageObject();
+            this.BackColor = Color.Transparent;
+        }
+
+        private void InitStyles()
+        {
+            this.FlatStyle = FlatStyle.Flat;
+            this.SetStyle(ControlStyles.ResizeRedraw |
+                          ControlStyles.OptimizedDoubleBuffer |
+                          ControlStyles.AllPaintingInWmPaint, true);
+        }
+
+        protected virtual void InitEvents()
+        {
+            this.DrawButtonEvent = new DrawingEventHandler(DrawButton);
+        }
+        #endregion
+
+        #region Mouse Events
+
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            base.OnMouseEnter(e);
+
+            this.alpha = 255;
+            this.fadeTimer.Stop();
+
+            if (this.Enabled)
+                this.state = ControlState.Highlight;
+            else
+                this.state = ControlState.Disable;
+
+            this.Invalidate();
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+
+            if (this.Enabled)
+            {
+                if (this.EnableFade)
+                {
+                    this.fadeTimer.Start();
+                }
+                this.state = ControlState.Normal;
+            }
+            else
+                this.state = ControlState.Disable;
+
+            this.Invalidate();
+        }
+
+        protected override void OnMouseDown(MouseEventArgs mevent)
+        {
+            base.OnMouseDown(mevent);
+
+            if (this.Enabled)
+                this.state = ControlState.Down;
+            else
+                this.state = ControlState.Disable;
+
+            this.Invalidate();
+        }
+
+        protected override void OnMouseClick(MouseEventArgs e)
+        {
+            base.OnMouseClick(e);
+
+            if (!this.Focus())
+                return;
+
+            if (this.Enabled)
+            {
+                Point pt = this.PointToClient(Cursor.Position);
+                if (this.ClientRectangle.Contains(pt))
+                    this.state = ControlState.Highlight;
+                else
+                    this.state = ControlState.Normal;
+            }
+            else
+            {
+                this.state = ControlState.Disable;
+            }
+
+            this.Invalidate();
+        }
+
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            base.OnEnabledChanged(e);
+
+            this.fadeTimer.Stop();
+
+            if (!this.Enabled)
+                this.state = ControlState.Disable;
+            else
+                this.state = ControlState.Normal;
+
+            this.Invalidate();
+        }
+
+        protected override void OnLostFocus(EventArgs e)
+        {
+            base.OnLostFocus(e);
+
+            this.alpha = 0;
+            this.fadeTimer.Stop();
+
+            if (!this.Enabled)
+                this.state = ControlState.Disable;
+            else
+                this.state = ControlState.Normal;
+
+            this.Invalidate();
+        }
+
+#endregion
+
+        #region Paint Function
+
+        protected override void OnPaint(PaintEventArgs pevent)
+        {
+           try
+           {
+               pevent.Graphics.Clear(this.BackColor);
+
+               ImageObject imgObject = this.GetImageObject();
+               if (imgObject == null || imgObject.IsEmpty)
+               {
+               //    base.InvokePaintBackground(this, pevent);
+               //    base.OnPaint(pevent);
+               //    return;
+               }
+
+               if (imgObject[this.state] == null || this.enableMask)
+               {
+                   this.InvokePaintBackground(this, pevent);
+               //    base.OnPaint(pevent);
+               //    return;
+               }
+
+               this.DrawImage(pevent.Graphics, this.ClientRectangle);
+               this.DrawString(pevent.Graphics, this.ClientRectangle);
+           }
+           catch (System.Exception e)
+           {
+               Debug.WriteLine(e.Message);
+           }
+        }
+
+        protected virtual void DrawImage(Graphics g, Rectangle rect)
+        {
+            ImageObject imgObject = this.GetImageObject();
+            if (imgObject != null && !imgObject.IsEmpty)
+            {
+                if (this.enableFade)
+                {
+                    ControlState state = this.State();
+                    if (state == ControlState.Normal)
+                    {
+                        if (alpha > 0)
+                            DrawEngine.DrawRect2(g, imgObject, rect, ControlState.Highlight, (float)alpha / 255f);
+                        DrawEngine.DrawRect2(g, imgObject, rect, ControlState.Normal, 1.0f - (float)alpha / 255f);
+                    }
+                    else
+                        DrawEngine.DrawRect2(g, imgObject, rect, this.State());
+                }
+                else
+                    DrawEngine.DrawRect2(g, imgObject, rect, this.State());
+            } 
+        }
+
+        protected virtual void DrawString(Graphics g, Rectangle rect)
+        {
+            Size txts = Size.Empty;
+
+            StringFormat format1;
+            using (format1 = new StringFormat())
+            {
+                format1.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.Show;
+                format1.FormatFlags |= StringFormatFlags.LineLimit;
+                format1.FormatFlags |= StringFormatFlags.NoWrap;
+                SizeF ef1 = g.MeasureString(this.Text, this.Font, new SizeF((float)rect.Width, (float)rect.Height), format1);
+                txts = Size.Ceiling(ef1);
+            }
+
+            Rectangle txtr = rect;
+            txtr = DrawEngine.HAlignWithin(txts, txtr, this.TextAlign);
+            txtr = DrawEngine.VAlignWithin(txts, txtr, this.TextAlign);
+
+            Brush brushText;
+            StringFormat strFmt = new StringFormat();
+            strFmt.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.Show;
+            strFmt.FormatFlags |= StringFormatFlags.LineLimit;
+            strFmt.FormatFlags |= StringFormatFlags.NoWrap;
+            if (textDirection == ToolStripTextDirection.Vertical90 ||
+                textDirection == ToolStripTextDirection.Vertical270)
+            {
+                strFmt.FormatFlags |= StringFormatFlags.DirectionVertical;
+                txtr = Rectangle.FromLTRB(txtr.Left, 0, txtr.Right, rect.Height);
+                strFmt.Alignment = StringAlignment.Center;
+            }
+
+            if (this.RightToLeft == RightToLeft.Yes)
+            {
+                strFmt.FormatFlags |= StringFormatFlags.DirectionRightToLeft;
+            }
+
+            brushText = new SolidBrush(this.ForeColor);
+
+            if (this.State() == ControlState.Disable)
+            {
+                RectangleF rectF = new RectangleF((float)txtr.Left, (float)txtr.Top, (float)txtr.Width, (float)txtr.Height);
+                ControlPaint.DrawStringDisabled(g, this.Text, this.Font, this.BackColor, rectF, strFmt);
+            }
+            else
+                g.DrawString(this.Text, this.Font, brushText, (RectangleF)txtr, strFmt);
+
+            brushText.Dispose();
+        }
+
+        protected void OnDrawButton(Object sender, Graphics g, Rectangle rect)
+        {
+            if (this.DrawButtonEvent != null)
+                this.DrawButtonEvent(sender, g, rect);
+        }
+
+        private void DrawButton(Object sender, Graphics g, Rectangle rect)
+        {
+            SkinManager.Render.DrawButton(sender, g, this.ImageObject, rect, this.textDirection);
+        }
+
+        #endregion
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+
+            this.MaskThis();
+        }
+
+        #region Mask
+        private void MaskThis()
+        {
+            if (!this.enableMask)
+                return;
+
+            if (this.NormalBitmap == null)
+                return;
+
+            Region region = new Region(new Rectangle(0, 0, this.NormalBitmap.Width, this.NormalBitmap.Height));
+            for (int i = 0; i < this.NormalBitmap.Width; i++)
+            {
+                for (int j = 0; j < this.NormalBitmap.Height; j++)
+                {
+                    Color clr = this.NormalBitmap.GetPixel(i, j);
+                    if (clr.A == 0)
+                    {
+                        region.Xor(new Rectangle(i, j, 1, 1));
+                    }
+                }
+            }
+
+            this.Region = region;
+        }
+        #endregion Mask
+
+        private void fadeTimer_Tick(object sender, EventArgs e)
+        {
+            if (fade == Fade.Out)
+            {
+                if (alpha > 0)
+                {
+                    this.Refresh();
+                    alpha -= 51;
+                }
+                else
+                {
+                    this.fadeTimer.Stop();
+                    alpha = 0;
+                    this.Refresh();
+                }
+
+                if (alpha > 255)
+                {
+                    alpha = 255;
+                    this.Refresh();
+
+                    this.fadeTimer.Stop();
+                }
+            }
+        }
+    }
+}

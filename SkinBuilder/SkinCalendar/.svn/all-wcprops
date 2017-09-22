@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar
+END
+AppointmentEventArgs.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/AppointmentEventArgs.cs
+END
+MonthView.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/MonthView.Designer.cs
+END
+MonthView.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/MonthView.cs
+END
+SelectionTool.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/SelectionTool.cs
+END
+ResolveAppointmentsEvent.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/ResolveAppointmentsEvent.cs
+END
+Office11Renderer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/Office11Renderer.cs
+END
+Selection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/Selection.cs
+END
+Office12Renderer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/Office12Renderer.cs
+END
+ITool.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/ITool.cs
+END
+AbstractRenderer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/AbstractRenderer.cs
+END
+DrawTool.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/DrawTool.cs
+END
+SkinCalendar.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/SkinCalendar.Designer.cs
+END
+SkinCalendar.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/SkinCalendar.cs
+END
+Appointment.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/Appointment.cs
+END
+DayView.cs
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/DayView.cs
+END
+NewAppointmentEvent.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinCalendar/NewAppointmentEvent.cs
+END
+SkinCalendar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ZLIS/!svn/ver/4/SkinBuilder/Project/SkinBuilder/SkinCalendar/SkinCalendar.resx
+END

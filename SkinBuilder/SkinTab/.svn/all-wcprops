@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ZLIS/!svn/ver/352/SkinBuilder/Project/SkinBuilder/SkinTab
+END
+RibbonPanel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ZLIS/!svn/ver/352/SkinBuilder/Project/SkinBuilder/SkinTab/RibbonPanel.cs
+END
+TabPageSwitcher.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinTab/TabPageSwitcher.cs
+END
+TabToolboxItem.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ZLIS/!svn/ver/4/SkinBuilder/Project/SkinBuilder/SkinTab/TabToolboxItem.cs
+END
+TabPageSwitcherDesigner.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinTab/TabPageSwitcherDesigner.cs
+END
+LayoutUtils.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinTab/LayoutUtils.cs
+END
+TabStripToolboxItem.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinTab/TabStripToolboxItem.cs
+END
+TabStripProfessionalRenderer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/ZLIS/!svn/ver/352/SkinBuilder/Project/SkinBuilder/SkinTab/TabStripProfessionalRenderer.cs
+END
+TabStripSystemRenderer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinTab/TabStripSystemRenderer.cs
+END
+TabStripPage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinTab/TabStripPage.cs
+END
+Tab.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ZLIS/!svn/ver/58/SkinBuilder/Project/SkinBuilder/SkinTab/Tab.cs
+END
+TabStrip.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ZLIS/!svn/ver/352/SkinBuilder/Project/SkinBuilder/SkinTab/TabStrip.cs
+END

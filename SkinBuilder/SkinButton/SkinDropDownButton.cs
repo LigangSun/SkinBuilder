@@ -1,0 +1,199 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Text;
+using System.Windows.Forms;
+
+namespace ZLIS.SkinBuilder
+{
+    public partial class SkinDropDownButton : SkinButton
+    {
+        #region Members
+        private SkinPopup dropDownMenu = null;
+        protected bool dropDown = false;
+        private Bitmap icon = null;
+        #endregion
+
+        #region Properties
+        public SkinPopup DropDownMenu 
+        {
+            set 
+            {
+                if (value == null)
+                    return;
+
+                if (this.dropDownMenu != null)
+                {
+                    this.dropDownMenu.Closed -= dropDownMenu_Closed;
+                    this.dropDownMenu.VisibleChanged -= dropDownMenu_VisibleChanged;
+                //    this.dropDownMenu.VisibleChanged -= OnMenuVisibleChanged;
+                //    this.dropDownMenu.LostFocus -= OnMenuLostFocus;
+                }
+
+                this.dropDownMenu = value;
+                this.dropDownMenu.Visible = false;
+                if (value != null)
+                {
+                    this.dropDownMenu.Closed += dropDownMenu_Closed;
+                    this.dropDownMenu.VisibleChanged += dropDownMenu_VisibleChanged;
+                //    this.dropDownMenu.VisibleChanged += OnMenuVisibleChanged;
+                //    this.dropDownMenu.LostFocus += OnMenuLostFocus;
+                }
+            }
+            get { return this.dropDownMenu; }
+        }
+
+        public new ContextMenuStrip ContextMenuStrip
+        {
+            get { return base.ContextMenuStrip; }
+            set
+            {
+                if (base.ContextMenuStrip != null)
+                {
+                    base.ContextMenuStrip.VisibleChanged -= OnMenuVisibleChanged;
+                    base.ContextMenuStrip.LostFocus -= OnMenuLostFocus;
+                }
+
+                base.ContextMenuStrip = value;
+                if (value != null)
+                {
+                    base.ContextMenuStrip.VisibleChanged += OnMenuVisibleChanged;
+                    base.ContextMenuStrip.LostFocus += OnMenuLostFocus;
+                }
+            }
+        }
+
+        public Bitmap Icon
+        {
+            set 
+            { 
+                this.icon = value;
+                this.Invalidate();
+            }
+            get { return this.icon; }
+        }
+        #endregion
+
+        public SkinDropDownButton()
+        {
+            InitializeComponent();
+        }
+
+        protected override void OnMouseUp(MouseEventArgs mevent)
+        {
+            base.OnMouseUp(mevent);
+
+            if (this.Enabled)
+            {
+                if (this.dropDownMenu != null)
+                {
+                    Point pt = this.PointToScreen(new Point(this.Location.X, this.Height));
+                    this.dropDownMenu.Location = pt;
+                    this.dropDownMenu.Show(pt);
+                    this.dropDownMenu.BringToFront();
+                    this.BringToFront();
+                    this.state = ControlState.Down;
+                    this.dropDown = true;
+                }
+                else if (this.ContextMenuStrip != null)
+                {
+                    Point pt = new Point(0, this.Height);
+                    this.ContextMenuStrip.Show(this, pt);
+                    this.ContextMenuStrip.BringToFront();
+                    this.BringToFront();
+                    this.state = ControlState.Down;
+                    this.dropDown = true;
+                }
+                else
+                {
+                    this.state = ControlState.Normal;
+                }
+            }
+            else
+            {
+                this.state = ControlState.Disable;
+            }
+
+            this.Invalidate();
+        }
+
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            if (this.dropDown)
+                return;
+
+            base.OnMouseEnter(e);
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            if (this.Enabled)
+            {
+                if (this.dropDownMenu != null || this.ContextMenuStrip != null)
+                {
+                    if (this.dropDown)
+                        this.state = ControlState.Down;
+                    else
+                        this.state = ControlState.Normal;
+                }
+            }
+            else
+                this.state = ControlState.Disable;
+
+            this.Invalidate();
+        }
+
+        private void OnMenuVisibleChanged(object sender, EventArgs e)
+        {
+            if (this.ContextMenuStrip == null)
+                return;
+
+            if (!this.ContextMenuStrip.Visible)
+            {
+                this.dropDown = false;
+                this.state = ControlState.Normal;
+                this.Invalidate();
+            }
+            else
+            {
+                this.dropDown = true;
+            }
+        }
+
+        private void OnMenuLostFocus(object sender, EventArgs e)
+        {
+            if (this.ContextMenuStrip == null)
+                return;
+
+            this.ContextMenuStrip.Visible = false;
+        }
+
+        protected override void OnPaint(PaintEventArgs pevent)
+        {
+            base.OnPaint(pevent);
+
+            if (this.icon != null)
+            {
+                Rectangle iconRect = new Rectangle((this.ClientRectangle.Width - this.icon.Width) / 2,
+                    (this.ClientRectangle.Height - this.icon.Height) / 2,
+                    this.icon.Width,
+                    this.icon.Height);
+                pevent.Graphics.DrawImage(this.icon, iconRect, 0, 0, this.icon.Width, this.icon.Height, GraphicsUnit.Pixel);
+            }
+        }
+
+        private void dropDownMenu_Closed(object sender, EventArgs e)
+        {
+            this.dropDown = false;
+            this.OnMouseLeave(e);
+        }
+
+        private void dropDownMenu_VisibleChanged(object sender, EventArgs e)
+        {
+            this.dropDown = false;
+            this.OnMouseLeave(e);
+        }
+    }
+}
